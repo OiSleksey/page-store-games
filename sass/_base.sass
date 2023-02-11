@@ -6,6 +6,38 @@ $color-blue-dark: #101D2C
 $color-gray-dark: #AAAAAA
 $color-gray-light: #F5F5F5
 
+@mixin respond ($breakpoint)
+    @if $breakpoint == phone-second
+        @media only screen and (max-width: 568px)
+            @content
+
+    @if $breakpoint == phone-first
+        @media only screen and (max-width: 664px)
+            @content
+     
+    @if $breakpoint == tab-port-third
+        @media only screen and (max-width: 756px)
+            @content
+ 
+    @if $breakpoint == tab-port-second
+        @media only screen and (max-width: 951px)
+            @content
+
+    @if $breakpoint == tab-port-first
+        @media only screen and (max-width: 1182px)
+            @content
+    
+    @if $breakpoint == tab-land
+        @media only screen and (max-width: 1330px)
+            @content
+
+    @if $breakpoint == big-screen
+        @media only screen and (max-width: 1800px)
+            @content
+
+    // @include respond(phone)
+    //     color: white
+
 *, ::after, ::before
     margin: 0
     padding: 0
@@ -13,7 +45,18 @@ $color-gray-light: #F5F5F5
 
 html
     font-size: 62.5%
+    @include respond(tab-port-first)
+        font-size: 50%
+    @include respond(tab-port-second)
+        font-size: 40%
+    @include respond(tab-port-third)
+        font-size: 35%
+    @include respond(phone-first)
+        font-size: 30%
 
+       
+
+    
 body
     font-family: 'Montserrat', sans-serif
     font-size: 1.6rem
@@ -23,7 +66,10 @@ body
     background: $color-gray-light
     color: white
 
+
 .container
     display: grid
-    grid-template-rows: 80vh min-content 40vw repeat(3, min-content)
+    grid-template-rows: 100vh min-content 40vw repeat(3, min-content)
     grid-template-columns: [side-start] 8rem [side-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end]
+    @include respond(phone-second)
+        grid-template-rows: 100vh min-content min-content 40vw repeat(3, min-content)

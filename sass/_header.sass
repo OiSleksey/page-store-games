@@ -4,15 +4,17 @@
     padding: 4rem
     display: grid
     grid-template-rows: min-content 1fr min-content 1fr min-content
+    @include respond(phone-second)
+        grid-column: full-start / full-end
     &__logo
         grid-row: 1/2
         margin: 0 auto
     &__main
         grid-row: 3/4
-    &__advertising
+    &__platform
         grid-row: 5/6
 
-.advertising
+.platform
     &__text
         display: grid
         grid-template-columns: 1fr max-content 1fr

@@ -74,7 +74,7 @@ body {
   .card__header {
     width: 85%;
     transform: translateY(-50%);
-    padding: 1.5rem 11rem;
+    padding: 1.5rem 2rem;
     background-color: #425844;
     text-align: center; }
   .card__description {
@@ -251,7 +251,19 @@ body {
 .sidebar {
   background-color: #425844;
   grid-column: side-start / side-end;
-  grid-row: 1 / -1; }
+  grid-row: 1 / -1;
+  padding-top: 2.5rem; }
+
+.hamburger__button {
+  border: none;
+  background-color: #F5F5F5;
+  height: .2rem;
+  width: 4rem; }
+  .hamburger__button::before, .hamburger__button::after {
+    content: "";
+    height: .2rem;
+    width: 4rem;
+    display: block; }
 
 .gallery {
   padding: 2rem;

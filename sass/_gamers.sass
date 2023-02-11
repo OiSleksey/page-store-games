@@ -4,10 +4,11 @@
     display: grid
     grid-template-rows: 1fr min-content min-content 1fr
     align-items: center
+    @include respond(phone-second)
+        grid-column: full-start / full-end
     &__header
         grid-row: 2/3
         justify-self: center
-        margin-bottom: 3.5rem
     &__players
         grid-row: 3/4
 .players

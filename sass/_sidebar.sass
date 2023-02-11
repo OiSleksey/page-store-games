@@ -2,3 +2,29 @@
     background-color: $color-green-dark
     grid-column: side-start / side-end
     grid-row: 1 / -1
+    padding-top: 2.5rem
+    display: grid
+    grid-template-columns: 1fr max-content 1fr
+    &__hamburger
+        grid-column: 2/3
+
+.hamburger
+    // border: none
+    // height: .2rem
+    // width: 4.5rem
+    &__btn
+        border: none
+        background-color: $color-gray-light
+        height: .2rem
+        width: 4rem
+        &::before, &::after
+            content: ""
+            background-color: $color-gray-light
+            height: .2rem
+            width: 4rem
+            display: block
+        &::before
+            transform: translateY(-1rem)
+        &::after
+            transform: translateY(1rem)
+
