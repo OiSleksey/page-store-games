@@ -1,3 +1,63 @@
 .header
-    background-color: $color-blue-dark
+    background: url("../img/back-header.png") center/cover no-repeat
     grid-column: full-start / col-end 6
+    padding: 4rem
+    display: grid
+    grid-template-rows: min-content 1fr min-content 1fr min-content
+    &__logo
+        grid-row: 1/2
+        margin: 0 auto
+    &__main
+        grid-row: 3/4
+    &__advertising
+        grid-row: 5/6
+
+.advertising
+    &__text
+        display: grid
+        grid-template-columns: 1fr max-content 1fr
+        grid-column-gap: 2rem
+        align-items: center
+        font-weight: 700
+        color: $color-gray-dark
+        margin-bottom: 1.3rem
+        &::before, &::after
+            content: ""
+            background-color: $color-gray-dark
+            height: .1rem
+            display: block
+    &__emblems
+        display: flex
+        flex-direction: row
+        width: 100%
+        justify-content: space-between
+        align-items: center
+    &__link
+        text-decoration: none
+        display: inline-block
+    &__img-1
+        width: 8rem
+    &__img-2
+        width: 8rem
+    &__img-3
+        width: 11rem
+    &__img-4
+        width: 9rem
+
+.main
+    &__header
+        margin-bottom: 3rem
+
+        
+    // &__btn
+
+    
+
+
+.logo
+    width: 12rem
+    height: 4rem
+    &__img
+        width: 100%
+        height: 100%
+        object-fit: cover

@@ -1,0 +1,18 @@
+.nav    
+    &__list
+        list-style: none
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(15rem, max-content))
+        grid-gap: 3.5rem 3rem
+        justify-content: center
+    &__item
+        display: inline-block
+        text-align: center
+    &__link
+        &:link, &:visited
+            display: inline-block
+            text-decoration: none
+            transition: all .2s
+        &:hover, &:active
+            color: $color-green-light
+            transform: scale(1.03)
