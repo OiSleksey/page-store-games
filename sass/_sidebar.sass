@@ -3,12 +3,25 @@
     grid-column: side-start / side-end
     grid-row: 1 / -1
     padding-top: 2.5rem
-    display: grid
-    grid-template-columns: 1fr max-content 1fr
-    &__hamburger
-        grid-column: 2/3
+    // display: grid
+    // grid-template-columns: 1fr min-content 1fr
+    // text-align: center
+    // position: relative
+    @include respond(phone-third)
+        position: fixed
+        z-index: 3
+        width: 100%
+        height: 8rem
+        padding: 2.8rem 2rem
+        background-color: $color-green-dark
+        grid-column: 1 / -2
+        grid-row: 1 / 2
+    // &__hamburger
 
 .hamburger
+    position: fixed
+    grid-column: 2/3
+    margin-left: 1.4rem
     // border: none
     // height: .2rem
     // width: 4.5rem

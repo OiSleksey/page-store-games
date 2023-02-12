@@ -1,19 +1,31 @@
 .title-1
     font-size: 4.3rem
-    line-height: 85%
+    line-height: 90%
     @include respond(tab-land)
         font-size: 3.9rem
+    // @include respond(tab-port-second)
+    //     font-size: 4.3rem
+    @include respond(phone-second)
+        font-size: 4.7rem
+    @include respond(phone-third)
+        font-size: 7rem
+        line-height: 110%
 .title-2
     font-size: 3.5rem
     line-height: 100%
     @include respond(tab-land)
         font-size: 3.2rem
+    @include respond(phone-second)
+        font-size: 3rem
 .title-3
     font-size: 3rem
     line-height: 140%
 .title-4
     font-size: 2rem
     line-height: 120%
+.title-5
+    font-size: 1.8rem
+    line-height: 110%
 .paragraph
     font-size: 1.6rem
     display: inline-block
@@ -33,6 +45,6 @@
     color: $color-green-light
 
 .score_text
-    font-size: 1.4rem
+    font-size: 1.6rem
     color: $color-gray-dark
 

@@ -7,6 +7,10 @@ $color-gray-dark: #AAAAAA
 $color-gray-light: #F5F5F5
 
 @mixin respond ($breakpoint)
+    @if $breakpoint == phone-third
+        @media only screen and (max-width: 505px)
+            @content
+
     @if $breakpoint == phone-second
         @media only screen and (max-width: 568px)
             @content
@@ -53,6 +57,8 @@ html
         font-size: 35%
     @include respond(phone-first)
         font-size: 30%
+    @include respond(phone-second)
+        font-size: 30%
 
        
 
@@ -69,7 +75,15 @@ body
 
 .container
     display: grid
-    grid-template-rows: 100vh min-content 40vw repeat(3, min-content)
-    grid-template-columns: [side-start] 8rem [side-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end]
+    // grid-template-rows: 100vh min-content 40vw repeat(3, min-content)
+    grid-template-rows: [header-gamers-start] 100vh [header-gamers-end  features-start] min-content [features-end banners-start] min-content [banners-end cards-start] min-content [cards-end gallery-start] min-content [gallery-end footer-start] min-content [footer-end]
+    grid-template-columns: [side-start] 7rem [side-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end]
     @include respond(phone-second)
-        grid-template-rows: 100vh min-content min-content 40vw repeat(3, min-content)
+        grid-template-rows: [header-start] 100vh [header-end gamers-start] min-content [gamers-end features-start] min-content [features-end banners-start] min-content [banners-end cards-start] min-content [cards-end gallery-start] min-content [gallery-end footer-start] min-content [footer-end]
+    @include respond(phone-third)
+        grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end]
+        grid-template-rows: [side-start] 8rem [side-end header-start] calc(100vh - 18rem) [header-end gamers-start] min-content [gamers-end features-start] min-content [features-end banner-img-start] min-content [banner-img-end banner-text-start] min-content [banner-text-end cards-start] min-content [cards-end gallery-start] min-content [gallery-end footer-start] min-content [footer-end]
+
+        // grid-template-rows: [header-start] 100vh [header-end gamers-start] min-content [gamers-end features-start] 40vw [features-end banners-start] min-content [banners-end cards-start] min-content [cards-end gallery-start] min-content [gallery-end footer-start] min-content [footer-end]
+
+        // grid-template-rows: [header-start] 100vh [header-end gamers-start] min-content [gamers-end features-start] 40vw [features-end banners-start] min-content [banners-end cards-start] min-content [cards-end gallery-start] min-content [gallery-end footer-start] min-content [footer-end]
