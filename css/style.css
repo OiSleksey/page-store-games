@@ -5,6 +5,21 @@
 
 html {
   font-size: 62.5%; }
+  @media only screen and (max-width: 1182px) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 951px) {
+    html {
+      font-size: 40%; } }
+  @media only screen and (max-width: 756px) {
+    html {
+      font-size: 35%; } }
+  @media only screen and (max-width: 664px) {
+    html {
+      font-size: 30%; } }
+  @media only screen and (max-width: 568px) {
+    html {
+      font-size: 30%; } }
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -17,24 +32,51 @@ body {
 
 .container {
   display: grid;
-  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
-  grid-template-columns: [side-start] 8rem [side-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end]; }
+  grid-template-rows: [header-gamers-start] 100vh [header-gamers-end features-start] min-content [features-end banners-start] min-content [banners-end cards-start] min-content [cards-end gallery-start] min-content [gallery-end footer-start] min-content [footer-end];
+  grid-template-columns: [side-start] 7rem [side-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end]; }
+  @media only screen and (max-width: 568px) {
+    .container {
+      grid-template-rows: [header-start] 100vh [header-end gamers-start] min-content [gamers-end features-start] min-content [features-end banners-start] min-content [banners-end cards-start] min-content [cards-end gallery-start] min-content [gallery-end footer-start] min-content [footer-end]; } }
+  @media only screen and (max-width: 505px) {
+    .container {
+      grid-template-columns: [full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+      grid-template-rows: [side-start] 8rem [side-end header-start] calc(100vh - 18rem) [header-end gamers-start] min-content [gamers-end features-start] min-content [features-end banner-img-start] min-content [banner-img-end banner-text-start] min-content [banner-text-end cards-start] min-content [cards-end gallery-start] min-content [gallery-end footer-start] min-content [footer-end]; } }
 
 .title-1 {
   font-size: 4.3rem;
-  line-height: 85%; }
+  line-height: 90%; }
+  @media only screen and (max-width: 1330px) {
+    .title-1 {
+      font-size: 3.9rem; } }
+  @media only screen and (max-width: 568px) {
+    .title-1 {
+      font-size: 4.7rem; } }
+  @media only screen and (max-width: 505px) {
+    .title-1 {
+      font-size: 7rem;
+      line-height: 110%; } }
 
 .title-2 {
-  font-size: 4rem;
+  font-size: 3.5rem;
   line-height: 100%; }
+  @media only screen and (max-width: 1330px) {
+    .title-2 {
+      font-size: 3.2rem; } }
+  @media only screen and (max-width: 568px) {
+    .title-2 {
+      font-size: 3rem; } }
 
 .title-3 {
   font-size: 3rem;
   line-height: 140%; }
 
 .title-4 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 120%; }
+
+.title-5 {
+  font-size: 1.8rem;
+  line-height: 110%; }
 
 .paragraph {
   font-size: 1.6rem;
@@ -55,16 +97,17 @@ body {
   color: #61A568; }
 
 .score_text {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #AAAAAA; }
 
 .cards {
   background-color: #F5F5F5;
   grid-column: center-start / center-end;
+  grid-row: cards-start / cards-end;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-gap: 4rem 6rem;
-  padding: 14rem 5rem; }
+  padding: 10rem 5rem; }
 
 .card {
   display: grid;
@@ -96,18 +139,23 @@ body {
 .header {
   background: url("../img/back-header.png") center/cover no-repeat;
   grid-column: full-start / col-end 6;
+  grid-row: header-gamers-start / header-gamers-end;
   padding: 4rem;
   display: grid;
   grid-template-rows: min-content 1fr min-content 1fr min-content; }
+  @media only screen and (max-width: 568px) {
+    .header {
+      grid-row: header-start / header-end;
+      grid-column: full-start / full-end; } }
   .header__logo {
     grid-row: 1/2;
     margin: 0 auto; }
   .header__main {
     grid-row: 3/4; }
-  .header__advertising {
+  .header__platform {
     grid-row: 5/6; }
 
-.advertising__text {
+.platform__text {
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
   grid-column-gap: 2rem;
@@ -115,33 +163,36 @@ body {
   font-weight: 700;
   color: #AAAAAA;
   margin-bottom: 1.3rem; }
-  .advertising__text::before, .advertising__text::after {
+  .platform__text::before, .platform__text::after {
     content: "";
     background-color: #AAAAAA;
-    height: .1rem;
+    height: .16rem;
     display: block; }
+    @media only screen and (max-width: 951px) {
+      .platform__text::before, .platform__text::after {
+        height: .2rem; } }
 
-.advertising__emblems {
+.platform__emblems {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
   align-items: center; }
 
-.advertising__link {
+.platform__link {
   text-decoration: none;
   display: inline-block; }
 
-.advertising__img-1 {
+.platform__img-1 {
   width: 8rem; }
 
-.advertising__img-2 {
+.platform__img-2 {
   width: 8rem; }
 
-.advertising__img-3 {
+.platform__img-3 {
   width: 11rem; }
 
-.advertising__img-4 {
+.platform__img-4 {
   width: 9rem; }
 
 .main__header {
@@ -156,9 +207,10 @@ body {
     object-fit: cover; }
 
 .features {
-  padding: 15rem 5rem;
+  padding: 10rem 5rem;
   background-color: #F5F5F5;
   grid-column: center-start / center-end;
+  grid-row: features-start / features-end;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
   grid-gap: 5rem 5rem;
@@ -178,29 +230,48 @@ body {
     margin-bottom: 1.5rem; }
 
 .gamers {
+  padding: 3rem 0;
   background-color: #101D2C;
   grid-column: col-start 7 / full-end;
+  grid-row: header-gamers-start / header-gamers-end;
   display: grid;
   grid-template-rows: 1fr min-content min-content 1fr;
-  align-items: center; }
+  grid-row-gap: 3.7rem; }
+  @media only screen and (max-width: 568px) {
+    .gamers {
+      grid-row: gamers-start / gamers-end;
+      grid-column: full-start / full-end;
+      padding: 3rem 3rem;
+      grid-template-rows: min-content min-content; } }
   .gamers__header {
     grid-row: 2/3;
-    justify-self: center;
-    margin-bottom: 3.5rem; }
+    justify-self: center; }
   .gamers__players {
     grid-row: 3/4; }
 
 .players {
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
-  grid-row-gap: 4rem; }
+  grid-row-gap: 4rem;
+  justify-content: left; }
+  @media only screen and (max-width: 568px) {
+    .players {
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 27rem));
+      justify-content: center; } }
   .players__player {
     grid-column: 2/3;
     display: grid;
     grid-template-columns: repeat(2, max-content);
     grid-template-rows: min-content;
     align-items: center;
+    justify-self: left;
     grid-gap: 4rem 2rem; }
+    @media only screen and (max-width: 568px) {
+      .players__player {
+        grid-column: auto; } }
+    @media only screen and (max-width: 505px) {
+      .players__player {
+        padding-bottom: 5rem; } }
   .players__avatar {
     width: 7rem;
     grid-row: 1/-1;
@@ -217,27 +288,46 @@ body {
 
 .banner-img {
   grid-column: full-start / col-end 4;
+  grid-row: banners-start / banners-end;
   display: grid;
   grid-template-rows: repeat(20, 1fr);
   grid-template-columns: repeat(20, 1fr);
   background: url("../img/banner-back.png") center/cover no-repeat; }
+  @media only screen and (max-width: 505px) {
+    .banner-img {
+      grid-column: full-start / full-end;
+      grid-row: banner-img-start / banner-img-end; } }
   .banner-img > * {
     width: 100%; }
   .banner-img__img-1 {
-    grid-row: 3/-3;
+    grid-row: 4/-7;
     grid-column: 3/-5; }
+    @media only screen and (max-width: 505px) {
+      .banner-img__img-1 {
+        grid-row: 3/-7; } }
   .banner-img__img-2 {
-    grid-row: 9/-1;
+    grid-row: 9/-4;
     grid-column: 7/-1;
     transform: translateX(4rem); }
+    @media only screen and (max-width: 505px) {
+      .banner-img__img-2 {
+        transform: translateX(0);
+        grid-column: 7/-3;
+        grid-row: 9/-3; } }
 
 .banner-text {
   background-color: #101D2C;
   grid-column: col-start 5 / full-end;
+  grid-row: banners-start / banners-end;
   display: grid;
   grid-template-rows: repeat(4, min-content);
-  padding: 0 7rem;
+  padding: 0 5rem 0 7rem;
   align-content: center; }
+  @media only screen and (max-width: 505px) {
+    .banner-text {
+      grid-column: full-start / full-end;
+      grid-row: banner-text-start / banner-text-end;
+      padding: 7rem 5rem; } }
   .banner-text__direction {
     color: #61A568;
     font-weight: 300; }
@@ -253,22 +343,42 @@ body {
   grid-column: side-start / side-end;
   grid-row: 1 / -1;
   padding-top: 2.5rem; }
+  @media only screen and (max-width: 505px) {
+    .sidebar {
+      position: fixed;
+      z-index: 3;
+      width: 100%;
+      height: 8rem;
+      padding: 2.8rem 2rem;
+      background-color: #425844;
+      grid-column: 1 / -2;
+      grid-row: 1 / 2; } }
 
-.hamburger__button {
-  border: none;
-  background-color: #F5F5F5;
-  height: .2rem;
-  width: 4rem; }
-  .hamburger__button::before, .hamburger__button::after {
-    content: "";
+.hamburger {
+  position: fixed;
+  grid-column: 2/3;
+  margin-left: 1.4rem; }
+  .hamburger__btn {
+    border: none;
+    background-color: #F5F5F5;
     height: .2rem;
-    width: 4rem;
-    display: block; }
+    width: 4rem; }
+    .hamburger__btn::before, .hamburger__btn::after {
+      content: "";
+      background-color: #F5F5F5;
+      height: .2rem;
+      width: 4rem;
+      display: block; }
+    .hamburger__btn::before {
+      transform: translateY(-1rem); }
+    .hamburger__btn::after {
+      transform: translateY(1rem); }
 
 .gallery {
-  padding: 2rem;
+  padding: 4rem 2rem;
   background-color: #101D2C;
   grid-column: full-start / full-end;
+  grid-row: gallery-start / gallery-end;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(7, 5vw);
@@ -320,6 +430,7 @@ body {
 .footer {
   background-color: #101D2C;
   grid-column: full-start / full-end;
+  grid-row: footer-start / footer-end;
   padding: 6rem 3rem;
   border-top: 0.4rem solid #F5F5F5; }
   .footer__logo {
@@ -329,10 +440,11 @@ body {
   border: none;
   background-color: #61A568;
   padding: 1.5rem 3rem;
-  color: white;
+  color: #F5F5F5;
   letter-spacing: 0.15rem;
   text-transform: uppercase;
-  font-weight: 700; }
+  font-weight: 700;
+  font-size: 1.6rem; }
   .btn:hover {
     background-color: #425844; }
 
@@ -341,7 +453,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, max-content));
   grid-gap: 3.5rem 3rem;
-  justify-content: center; }
+  justify-content: center;
+  align-items: center; }
 
 .nav__item {
   display: inline-block;
